@@ -13506,11 +13506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\RemiBot\\Bot\\Bot.csproj",
+      "projectUniqueName": "C:\\Users\\vkovt\\Documents\\Projects\\RemiBot\\RemiBot\\Bot\\Bot.csproj",
       "projectName": "Bot",
-      "projectPath": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\RemiBot\\Bot\\Bot.csproj",
+      "projectPath": "C:\\Users\\vkovt\\Documents\\Projects\\RemiBot\\RemiBot\\Bot\\Bot.csproj",
       "packagesPath": "C:\\Users\\vkovt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\RemiBot\\Bot\\obj\\",
+      "outputPath": "C:\\Users\\vkovt\\Documents\\Projects\\RemiBot\\RemiBot\\Bot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

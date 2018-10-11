@@ -1,0 +1,16 @@
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\hostpolicy.dll
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\hostfxr.dll
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\Bot.exe
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\BotConfiguration.bot
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\Bot.deps.json
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\Bot.runtimeconfig.json
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\Bot.runtimeconfig.dev.json
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\Bot.dll
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\bin\Release\netcoreapp2.0\win-x86\Bot.pdb
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\obj\Release\netcoreapp2.0\win-x86\Bot.csprojAssemblyReference.cache
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\obj\Release\netcoreapp2.0\win-x86\Bot.csproj.CoreCompileInputs.cache
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\obj\Release\netcoreapp2.0\win-x86\UserSecretsAssemblyInfo.cs
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\obj\Release\netcoreapp2.0\win-x86\Bot.AssemblyInfoInputs.cache
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\obj\Release\netcoreapp2.0\win-x86\Bot.AssemblyInfo.cs
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\obj\Release\netcoreapp2.0\win-x86\Bot.dll
+C:\Users\vkovt\Documents\Projects\RemiBot\RemiBot\Bot\obj\Release\netcoreapp2.0\win-x86\Bot.pdb

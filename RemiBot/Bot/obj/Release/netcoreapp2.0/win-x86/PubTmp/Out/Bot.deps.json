@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "Bot Builder Echo Bot V4/1.0.0": {
+      "Bot/1.0.0": {
         "dependencies": {
           "Hangfire": "1.6.20",
           "Hangfire.MemoryStorage": "1.5.2",
@@ -37,7 +37,7 @@
           "Microsoft.NETCore.App": "2.0.9"
         },
         "compile": {
-          "Bot Builder Echo Bot V4.dll": {}
+          "Bot.dll": {}
         }
       },
       "Dapper/1.50.1": {
@@ -3405,7 +3405,7 @@
       }
     },
     ".NETCoreApp,Version=v2.0/win-x86": {
-      "Bot Builder Echo Bot V4/1.0.0": {
+      "Bot/1.0.0": {
         "dependencies": {
           "Hangfire": "1.6.20",
           "Hangfire.MemoryStorage": "1.5.2",
@@ -3420,7 +3420,7 @@
           "Microsoft.NETCore.App": "2.0.9"
         },
         "runtime": {
-          "Bot Builder Echo Bot V4.dll": {}
+          "Bot.dll": {}
         }
       },
       "Dapper/1.50.1": {
@@ -8095,7 +8095,7 @@
     }
   },
   "libraries": {
-    "Bot Builder Echo Bot V4/1.0.0": {
+    "Bot/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

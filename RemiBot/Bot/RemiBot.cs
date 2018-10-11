@@ -17,7 +17,7 @@ namespace Bot_Builder_Echo_Bot_V4
     {
         public const string JobCompleteEventName = "jobComplete";
 
-        public const string WelcomeText = @"Hello. \r\n Type 'run' to start a new job.";
+        public const string WelcomeText = @"Hello. Type 'run' to start a new job.";
 
         private readonly RemiBotAccessors _accessors;
         private readonly ILogger _logger;

@@ -19705,11 +19705,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\BoteExample\\Bot Builder Echo Bot V4\\Bot Builder Echo Bot V4.csproj",
-      "projectName": "Bot Builder Echo Bot V4",
-      "projectPath": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\BoteExample\\Bot Builder Echo Bot V4\\Bot Builder Echo Bot V4.csproj",
+      "projectUniqueName": "C:\\Users\\vkovt\\Documents\\Projects\\RemiBot\\RemiBot\\Bot\\Bot.csproj",
+      "projectName": "Bot",
+      "projectPath": "C:\\Users\\vkovt\\Documents\\Projects\\RemiBot\\RemiBot\\Bot\\Bot.csproj",
       "packagesPath": "C:\\Users\\vkovt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\BoteExample\\Bot Builder Echo Bot V4\\obj\\publish\\win-x86\\",
+      "outputPath": "C:\\Users\\vkovt\\Documents\\Projects\\RemiBot\\RemiBot\\Bot\\obj\\publish\\win-x86\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
