@@ -1,0 +1,13 @@
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\bin\Debug\netcoreapp2.0\BotConfiguration.bot
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\bin\Debug\netcoreapp2.0\Bot.deps.json
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\bin\Debug\netcoreapp2.0\Bot.runtimeconfig.json
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\bin\Debug\netcoreapp2.0\Bot.runtimeconfig.dev.json
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\bin\Debug\netcoreapp2.0\Bot.dll
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\bin\Debug\netcoreapp2.0\Bot.pdb
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\obj\Debug\netcoreapp2.0\Bot.csprojAssemblyReference.cache
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\obj\Debug\netcoreapp2.0\Bot.csproj.CoreCompileInputs.cache
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\obj\Debug\netcoreapp2.0\Bot.AssemblyInfoInputs.cache
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\obj\Debug\netcoreapp2.0\Bot.AssemblyInfo.cs
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\obj\Debug\netcoreapp2.0\Bot.dll
+C:\Users\vkovt\source\repos\BoteExample\RemiBot\Bot\obj\Debug\netcoreapp2.0\Bot.pdb

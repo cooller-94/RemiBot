@@ -1,0 +1,24 @@
+{
+    "name": "Bot_Builder_Echo_Bot_V4",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "1",
+            "name": "development"
+        },
+        {
+            "type": "endpoint",
+            "endpoint": "http://localhost:3978/api/messages",
+            "name": "Echo",
+            "id": "162"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "path": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\BoteExample\\Bot Builder Echo Bot V4\\BotConfiguration.bot",
+    "overrides": null
+}

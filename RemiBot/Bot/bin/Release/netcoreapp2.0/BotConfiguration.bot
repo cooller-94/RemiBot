@@ -1,0 +1,26 @@
+{
+    "name": "Bot_Builder_Echo_Bot_V4",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "39562a87-eb06-45d5-9866-121ad76b6810",
+            "appPassword": "khC938]soudsCPHAVQ91-^-",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "1",
+            "name": "development"
+        },
+        {
+            "type": "endpoint",
+            "appId": "39562a87-eb06-45d5-9866-121ad76b6810",
+            "appPassword": "khC938]soudsCPHAVQ91-^-",
+            "endpoint": "https://remibot.azurewebsites.net/api/messages",
+            "id": "163",
+            "name": "production"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "path": "C:\\Users\\vkovt\\source\\repos\\BoteExample\\BoteExample\\Bot Builder Echo Bot V4\\BotConfiguration.bot",
+    "overrides": null
+}

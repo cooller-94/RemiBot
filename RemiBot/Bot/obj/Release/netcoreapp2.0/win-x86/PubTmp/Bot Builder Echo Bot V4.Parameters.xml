@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="RemiBot" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\vkovt\\source\\repos\\BoteExample\\BoteExample\\Bot\ Builder\ Echo\ Bot\ V4\\obj\\Release\\netcoreapp2\.0\\win-x86\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

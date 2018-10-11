@@ -1,0 +1,13 @@
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\bin\Release\netcoreapp2.0\BotConfiguration.bot
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\bin\Release\netcoreapp2.0\Bot Builder Echo Bot V4.deps.json
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\bin\Release\netcoreapp2.0\Bot Builder Echo Bot V4.runtimeconfig.json
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\bin\Release\netcoreapp2.0\Bot Builder Echo Bot V4.runtimeconfig.dev.json
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\bin\Release\netcoreapp2.0\Bot Builder Echo Bot V4.dll
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\bin\Release\netcoreapp2.0\Bot Builder Echo Bot V4.pdb
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\obj\Release\netcoreapp2.0\Bot Builder Echo Bot V4.csprojAssemblyReference.cache
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\obj\Release\netcoreapp2.0\Bot Builder Echo Bot V4.csproj.CoreCompileInputs.cache
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\obj\Release\netcoreapp2.0\Bot Builder Echo Bot V4.AssemblyInfoInputs.cache
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\obj\Release\netcoreapp2.0\Bot Builder Echo Bot V4.AssemblyInfo.cs
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\obj\Release\netcoreapp2.0\Bot Builder Echo Bot V4.dll
+C:\Users\vkovt\source\repos\BoteExample\BoteExample\Bot Builder Echo Bot V4\obj\Release\netcoreapp2.0\Bot Builder Echo Bot V4.pdb
