@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using Bot;
+using Bot.Services;
 using Hangfire;
 using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Integration;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Configuration;
@@ -17,6 +22,7 @@ using RemiBot;
 
 namespace Bot_Builder_Echo_Bot_V4
 {
+
     public class Startup
     {
         private ILoggerFactory _loggerFactory;
@@ -39,32 +45,23 @@ namespace Bot_Builder_Echo_Bot_V4
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddHangfire(c => c.UseMemoryStorage());
 
-            // The Memory Storage used here is for local bot debugging only. When the bot
-            // is restarted, everything stored in memory will be gone.
             IStorage dataStore = new Microsoft.Bot.Builder.MemoryStorage();
 
-            // Create Job State object.
-            // The Job State object is where we persist anything at the job-scope.
-            // Note: It's independent of any user or conversation.
             var jobState = new JobState(dataStore);
 
-            // Make it available to our bot
             services.AddSingleton(sp => jobState);
+            services.AddSingleton(gs => new RemiBotGeneratorService());
 
-            // Register the proactive bot.
             services.AddBot<RemiBot>(options =>
             {
                 var secretKey = Configuration.GetSection("botFileSecret")?.Value;
                 var botFilePath = Configuration.GetSection("botFilePath")?.Value;
 
-                // Loads .bot configuration file and adds a singleton that your Bot can access through dependency injection.
                 var botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
                 services.AddSingleton(sp => botConfig ?? throw new InvalidOperationException($"The .bot config file could not be loaded. ({botConfig})"));
 
-                // Retrieve current endpoint.
                 var environment = _isProduction ? "production" : "development";
                 var service = botConfig.Services.Where(s => s.Type == "endpoint" && s.Name == environment).FirstOrDefault();
                 if (!(service is EndpointService endpointService))
@@ -74,16 +71,19 @@ namespace Bot_Builder_Echo_Bot_V4
 
                 options.CredentialProvider = new SimpleCredentialProvider(endpointService.AppId, endpointService.AppPassword);
 
-                // Creates a logger for the application to use.
                 ILogger logger = _loggerFactory.CreateLogger<RemiBot>();
 
-                // Catches any errors that occur during a conversation turn and logs them.
                 options.OnTurnError = async (context, exception) =>
                 {
                     logger.LogError($"Exception caught : {exception}");
                     await context.SendActivityAsync("Sorry, it looks like something went wrong.");
                 };
 
+                var conversationState = new ConversationState(dataStore);
+                options.State.Add(conversationState);
+
+                var userState = new UserState(dataStore);
+                options.State.Add(userState);
             });
 
             services.AddSingleton(sp =>
@@ -93,6 +93,22 @@ namespace Bot_Builder_Echo_Bot_V4
                                         ?? throw new InvalidOperationException(".bot file 'endpoint' must be configured prior to running.");
 
                 return endpointService;
+            });
+
+            services.AddSingleton<RemiBotAccessors>(sp => 
+            {
+                var options = sp.GetRequiredService<IOptions<BotFrameworkOptions>>().Value;
+                var conversationState = options.State.OfType<ConversationState>().FirstOrDefault();
+                var userState = options.State.OfType<UserState>().FirstOrDefault();
+
+                var accessors = new RemiBotAccessors(conversationState, userState)
+                { 
+                    TopicStateAccessor = conversationState.CreateProperty<TopicState>(RemiBotAccessors.TopicStateName),
+                    UserProfileAccessor = userState.CreateProperty<UserProfile>(RemiBotAccessors.UserProfileName),
+                    ConversationDialogState = conversationState.CreateProperty<DialogState>(RemiBotAccessors.CondversationDialogStateName),
+                };
+
+                return accessors;
             });
         }
 
