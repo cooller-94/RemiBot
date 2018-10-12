@@ -9,6 +9,7 @@ using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Azure;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Integration;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
@@ -79,10 +80,20 @@ namespace Bot_Builder_Echo_Bot_V4
                     await context.SendActivityAsync("Sorry, it looks like something went wrong.");
                 };
 
-                var conversationState = new ConversationState(dataStore);
+                var cosmosSettings = Configuration.GetSection("CosmosDB");
+                IStorage cosmosDbStorage = new CosmosDbStorage(
+                    new CosmosDbStorageOptions
+                    {
+                        DatabaseId = cosmosSettings["DatabaseID"],
+                        CollectionId = cosmosSettings["CollectionID"],
+                        CosmosDBEndpoint = new Uri(cosmosSettings["EndpointUri"]),
+                        AuthKey = cosmosSettings["AuthenticationKey"],
+                    });
+
+                var conversationState = new ConversationState(cosmosDbStorage);
                 options.State.Add(conversationState);
 
-                var userState = new UserState(dataStore);
+                var userState = new UserState(cosmosDbStorage);
                 options.State.Add(userState);
             });
 

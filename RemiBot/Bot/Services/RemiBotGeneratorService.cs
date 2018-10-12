@@ -20,5 +20,22 @@ namespace Bot.Services
 
             return stringBuilder.ToString();
         }
+
+        public string GenerateHelpMessage()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("You can use one of the following commands:");
+            stringBuilder.AppendLine("\r\n");
+            stringBuilder.AppendLine("\r\n\t");
+            stringBuilder.AppendLine("**new note** - to create a new note");
+            stringBuilder.AppendLine("\r\n\t");
+            stringBuilder.AppendLine("**show last** - to display last added note");
+            stringBuilder.AppendLine("\r\n\t");
+            stringBuilder.AppendLine("**cancel** - to cancel current operation");
+            stringBuilder.AppendLine("\r\n");
+            stringBuilder.AppendLine("**help** - to display the list of commands");
+
+            return stringBuilder.ToString();
+        }
     }
 }

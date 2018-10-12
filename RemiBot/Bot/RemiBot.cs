@@ -62,40 +62,45 @@ namespace Bot_Builder_Echo_Bot_V4
                 {
                     await OnCancelAsync(turnContext, dialogContext, cancellationToken);
                 }
+                else if (utterance == "help")
+                {
+                    string helpMessage = _generatorService.GenerateHelpMessage();
+                    await turnContext.SendActivityAsync(helpMessage);
+                }
                 else
                 {
                     DialogTurnResult results = await dialogContext.ContinueDialogAsync(cancellationToken);
 
-                    switch (utterance)
+                    if (results.Status == DialogTurnStatus.Empty)
                     {
-                        case "new reminder":
-                            await OnNewReminderAsync(turnContext, jobLog);
-                            break;
-                        case "new note":
-                            await OnNewNoteAsync(dialogContext, results, cancellationToken);
-                            break;
-                        case "cancel":
-                            await OnCancelAsync(turnContext, dialogContext, cancellationToken);
-                            break;
-                        case "show last":
+                        switch (utterance)
+                        {
+                            case "new reminder":
+                                await OnNewReminderAsync(turnContext, jobLog);
+                                break;
+                            case "new note":
+                                await OnNewNoteAsync(dialogContext, cancellationToken);
+                                break;
+                            case "show last":
 
-                            var userProfile = await _accessors.UserProfileAccessor.GetAsync(turnContext, () => new UserProfile(), cancellationToken);
+                                var userProfile = await _accessors.UserProfileAccessor.GetAsync(turnContext, () => new UserProfile(), cancellationToken);
 
-                            Note note = userProfile?.Notes?.OrderByDescending(i => i.AddedDate).FirstOrDefault();
+                                Note note = userProfile?.Notes?.OrderByDescending(i => i.AddedDate).FirstOrDefault();
 
-                            if (note == null)
-                            {
-                                await turnContext.SendActivityAsync($"You do not have any note");
-                            }
-                            else
-                            {
-                                string reply = _generatorService.GenerateNoteResponse(note);
-                                await turnContext.SendActivityAsync(reply);
-                            }
+                                if (note == null)
+                                {
+                                    await turnContext.SendActivityAsync($"You do not have any note");
+                                }
+                                else
+                                {
+                                    string reply = _generatorService.GenerateNoteResponse(note);
+                                    await turnContext.SendActivityAsync(reply);
+                                }
 
-                            break;
-                        default:
-                            break;
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
 
@@ -136,12 +141,9 @@ namespace Bot_Builder_Echo_Bot_V4
             await turnContext.SendActivityAsync("You reminder was scheduled");
         }
 
-        private async Task OnNewNoteAsync(DialogContext dialogContext, DialogTurnResult results, CancellationToken cancellationToken)
+        private async Task OnNewNoteAsync(DialogContext dialogContext, CancellationToken cancellationToken)
         {
-            if (results.Status == DialogTurnStatus.Empty)
-            {
-                await dialogContext.BeginDialogAsync("newNote", null, cancellationToken);
-            }
+            await dialogContext.BeginDialogAsync("newNote", null, cancellationToken);
         }
 
         private async Task SendWelcomeMessageAsync(ITurnContext turnContext)
@@ -169,8 +171,8 @@ namespace Bot_Builder_Echo_Bot_V4
             {
                 Actions = new List<CardAction>
                 {
-                    new CardAction() { Title = "Note", Type = ActionTypes.ImBack, Value = "new note", Text = "new note" },
-                    new CardAction() { Title = "Reminder", Type = ActionTypes.ImBack, Value = "new reminder", Text = "new note" },
+                    new CardAction() { Title = "New note", Type = ActionTypes.ImBack, Value = "new note", Text = "new note" },
+                    new CardAction() { Title = "Help", Type = ActionTypes.ImBack, Value = "Help", Text = "Help" },
                 },
             };
 
