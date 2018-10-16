@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Bot;
+using Bot.Constants;
 using Bot.Dialogs;
 using Bot.Models;
 using Bot.Services;
@@ -33,6 +35,7 @@ namespace Bot_Builder_Echo_Bot_V4
         private readonly IStatePropertyAccessor<JobLog> _jobLogPropertyAccessor;
         private readonly EndpointService _endpointService;
         private readonly RemiBotGeneratorService _generatorService;
+        private readonly RemiBotService _remiService;
 
         private ReminderDialogs _dialogs;
 
@@ -45,6 +48,7 @@ namespace Bot_Builder_Echo_Bot_V4
             _endpointService = endpointService;
             _generatorService = generatorService;
             _logger = loggerFactory.CreateLogger<RemiBot>();
+            _remiService = new RemiBotService(accessors, generatorService);
 
             _logger.LogTrace("RemiBot turn start");
         }
@@ -73,30 +77,20 @@ namespace Bot_Builder_Echo_Bot_V4
 
                     if (results.Status == DialogTurnStatus.Empty)
                     {
+                        if (utterance.Contains(RemiBotCommandConstants.ShowLastCommand))
+                        {
+                            string message = await _remiService.GetShowLastNotesMessageAsync(turnContext, cancellationToken, utterance);
+                            await turnContext.SendActivityAsync(message);
+                            return;
+                        }
+
                         switch (utterance)
                         {
-                            case "new reminder":
+                            case RemiBotCommandConstants.NewReminder:
                                 await OnNewReminderAsync(turnContext, jobLog);
                                 break;
-                            case "new note":
+                            case RemiBotCommandConstants.NewNoteCommand:
                                 await OnNewNoteAsync(dialogContext, cancellationToken);
-                                break;
-                            case "show last":
-
-                                var userProfile = await _accessors.UserProfileAccessor.GetAsync(turnContext, () => new UserProfile(), cancellationToken);
-
-                                Note note = userProfile?.Notes?.OrderByDescending(i => i.AddedDate).FirstOrDefault();
-
-                                if (note == null)
-                                {
-                                    await turnContext.SendActivityAsync($"You do not have any note");
-                                }
-                                else
-                                {
-                                    string reply = _generatorService.GenerateNoteResponse(note);
-                                    await turnContext.SendActivityAsync(reply);
-                                }
-
                                 break;
                             default:
                                 break;
