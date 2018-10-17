@@ -46,11 +46,22 @@ namespace Bot_Builder_Echo_Bot_V4
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHangfire(c => c.UseMemoryStorage());
+            var cosmosSettings = Configuration.GetSection("CosmosDB");
+
+            services.AddHangfire(c => c.UseAzureDocumentDbStorage(cosmosSettings["EndpointUri"], cosmosSettings["AuthenticationKey"], cosmosSettings["DatabaseID"], cosmosSettings["CollectionID"]));
 
             IStorage dataStore = new Microsoft.Bot.Builder.MemoryStorage();
 
-            var jobState = new JobState(dataStore);
+            IStorage cosmosDbStorage = new CosmosDbStorage(
+                new CosmosDbStorageOptions
+                {
+                    DatabaseId = cosmosSettings["DatabaseID"],
+                    CollectionId = cosmosSettings["CollectionID"],
+                    CosmosDBEndpoint = new Uri(cosmosSettings["EndpointUri"]),
+                    AuthKey = cosmosSettings["AuthenticationKey"],
+                });
+
+            var jobState = new JobState(cosmosDbStorage);
 
             services.AddSingleton(sp => jobState);
             services.AddSingleton(gs => new RemiBotGeneratorService());
@@ -79,16 +90,6 @@ namespace Bot_Builder_Echo_Bot_V4
                     logger.LogError($"Exception caught : {exception}");
                     await context.SendActivityAsync("Sorry, it looks like something went wrong.");
                 };
-
-                var cosmosSettings = Configuration.GetSection("CosmosDB");
-                IStorage cosmosDbStorage = new CosmosDbStorage(
-                    new CosmosDbStorageOptions
-                    {
-                        DatabaseId = cosmosSettings["DatabaseID"],
-                        CollectionId = cosmosSettings["CollectionID"],
-                        CosmosDBEndpoint = new Uri(cosmosSettings["EndpointUri"]),
-                        AuthKey = cosmosSettings["AuthenticationKey"],
-                    });
 
                 var conversationState = new ConversationState(cosmosDbStorage);
                 options.State.Add(conversationState);

@@ -7,7 +7,7 @@ namespace Bot.Services
 {
     public class RemiBotGeneratorService
     {
-        public string GenerateNoteResponse(Note note)
+        public string GenerateNoteResponse(Note note, bool withTitle = true)
         {
             if (note == null)
             {
@@ -15,14 +15,19 @@ namespace Bot.Services
             }
 
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"**Title:** {note.Title}");
-            stringBuilder.Append("\r\n");
+
+            if (withTitle)
+            {
+                stringBuilder.AppendLine($"**Title:** {note.Title}");
+                stringBuilder.Append("\r\n");
+            }
+
             stringBuilder.AppendLine($"**Note:** {note.Content}");
 
             return stringBuilder.ToString();
         }
 
-        public string GenerateNoteListResponse(List<Note> notes)
+        public string GenerateNoteListResponse(List<Note> notes, bool withTitle = true)
         {
             if (notes == null)
             {
@@ -33,7 +38,7 @@ namespace Bot.Services
 
             foreach (Note item in notes)
             {
-                string note = GenerateNoteResponse(item);
+                string note = GenerateNoteResponse(item, withTitle);
                 stringBuilder.AppendLine();
                 stringBuilder.AppendLine(note);
             }
@@ -44,16 +49,7 @@ namespace Bot.Services
         public string GenerateHelpMessage()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("You can use one of the following commands:");
-            stringBuilder.AppendLine("\r\n");
-            stringBuilder.AppendLine("\r\n\t");
-            stringBuilder.AppendLine("**new note** - to create a new note");
-            stringBuilder.AppendLine("\r\n\t");
-            stringBuilder.AppendLine("**show last x** - to display last x added note");
-            stringBuilder.AppendLine("\r\n\t");
-            stringBuilder.AppendLine("**cancel** - to cancel current operation");
-            stringBuilder.AppendLine("\r\n");
-            stringBuilder.AppendLine("**help** - to display the list of commands");
+            stringBuilder.AppendLine("You can schedule a reminder or just leave a note. To interrupt any operation, press **cancel**:");
 
             return stringBuilder.ToString();
         }

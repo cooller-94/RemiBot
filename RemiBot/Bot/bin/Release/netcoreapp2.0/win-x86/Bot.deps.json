@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0/win-x86",
-    "signature": "9600c12b2a926047ade5efd90bd63623c2509cae"
+    "signature": "b7b6de44c572ce40de6a26570ea28d12510271e8"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
         "dependencies": {
           "AsyncUsageAnalyzers": "1.0.0-alpha003",
           "Hangfire": "1.6.20",
+          "Hangfire.AzureDocumentDB": "2.1.1",
           "Hangfire.MemoryStorage": "1.5.2",
           "Microsoft.AdaptiveCards": "0.5.1",
           "Microsoft.AspNetCore": "2.1.3",
@@ -92,6 +93,17 @@
         },
         "compile": {
           "lib/netstandard1.3/Hangfire.AspNetCore.dll": {}
+        }
+      },
+      "Hangfire.AzureDocumentDB/2.1.1": {
+        "dependencies": {
+          "Hangfire.Core": "1.6.20",
+          "Microsoft.Azure.DocumentDB.Core": "1.9.1",
+          "Newtonsoft.Json": "11.0.2",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.AzureDocumentDB.dll": {}
         }
       },
       "Hangfire.Core/1.6.20": {
@@ -3575,6 +3587,7 @@
         "dependencies": {
           "AsyncUsageAnalyzers": "1.0.0-alpha003",
           "Hangfire": "1.6.20",
+          "Hangfire.AzureDocumentDB": "2.1.1",
           "Hangfire.MemoryStorage": "1.5.2",
           "Microsoft.AdaptiveCards": "0.5.1",
           "Microsoft.AspNetCore": "2.1.3",
@@ -3646,6 +3659,20 @@
           "lib/netstandard1.3/Hangfire.AspNetCore.dll": {
             "assemblyVersion": "1.6.20.0",
             "fileVersion": "1.6.20.0"
+          }
+        }
+      },
+      "Hangfire.AzureDocumentDB/2.1.1": {
+        "dependencies": {
+          "Hangfire.Core": "1.6.20",
+          "Microsoft.Azure.DocumentDB.Core": "1.9.1",
+          "Newtonsoft.Json": "11.0.2",
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.AzureDocumentDB.dll": {
+            "assemblyVersion": "2.1.1.0",
+            "fileVersion": "2.1.1.0"
           }
         }
       },
@@ -8401,6 +8428,13 @@
       "sha512": "sha512-pv9KGIbbjZXX6/z7yz/k1fYYUlWUF9T/uD6LajUoOZavml8UuAlMCYlqkldXQ9rbP3SJfDcqM92ZpoNZOKXgUQ==",
       "path": "hangfire.aspnetcore/1.6.20",
       "hashPath": "hangfire.aspnetcore.1.6.20.nupkg.sha512"
+    },
+    "Hangfire.AzureDocumentDB/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZZwCStzU3I9D685HuAssNgARnc0pYnyRgUqanssKcYlGB6Ua6yjsNKnbfUFamQjZbk80/W2LQhmFOE4baHvZUA==",
+      "path": "hangfire.azuredocumentdb/2.1.1",
+      "hashPath": "hangfire.azuredocumentdb.2.1.1.nupkg.sha512"
     },
     "Hangfire.Core/1.6.20": {
       "type": "package",

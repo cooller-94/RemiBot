@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Hangfire" Version="1.6.20" />
+    <PackageReference Include="Hangfire.AzureDocumentDB" Version="2.1.1" />
     <PackageReference Include="Hangfire.MemoryStorage" Version="1.5.2" />
     <PackageReference Include="Microsoft.AdaptiveCards" Version="0.5.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.3" />
